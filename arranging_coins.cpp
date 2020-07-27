@@ -14,6 +14,6 @@ class Solution {
         left = k+1;
       }
     }
-    return (int)right;
+    return  (int)right;
   }
 }
