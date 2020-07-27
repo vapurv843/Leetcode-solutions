@@ -11,7 +11,7 @@ class Solution {
       if (n < curr) {
         right = k - 1;
       } else {
-        left = k + 1;
+        left = k+1;
       }
     }
     return (int)right;
