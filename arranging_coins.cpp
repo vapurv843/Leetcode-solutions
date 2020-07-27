@@ -4,7 +4,7 @@ class Solution {
     long k, curr;
     while (left <= right) {
       k = left + (right - left) / 2;
-      curr = k * (k + 1) / 2;
+      curr = k *(k + 1)/2;
 
       if (curr == n) return (int)k;
 
