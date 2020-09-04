@@ -12,7 +12,7 @@ int xormin(int arr[],int n)
 }
 int main()
 {
-    int arr[] = {9, 5, 3,9};
+    int arr[] = {9, 5, 3,9,1,2,33,445,6};
     int  n = sizeof(arr)/sizeof(int);
     cout<<xormin(arr,n);
 }
