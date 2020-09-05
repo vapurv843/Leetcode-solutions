@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-int xormin(int arr[],int n)
+int xormin(int arr[],int size)
 {
     int m1 = INT_MAX;
-    for(int i = 0;i<n-1;i++)
+    for(int i = 0;i<size-1;i++)
     {
         int val = arr[i]^arr[i+1];
         m1 = min(m1,val);
