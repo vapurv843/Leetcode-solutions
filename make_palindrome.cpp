@@ -3,7 +3,7 @@ int Solution::solve(string A) {
     if (strLen == 1)
     	return 0;
     
-    int idx[2] = {0, 0}; // {start, len}
+    int idx[2] = {0, 0};
     
     while (i < strLen) {
     	int start = i;
