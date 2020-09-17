@@ -10,8 +10,7 @@ int Solution::solve(vector<int> &arr) {
             if (arr[j] < arr[i]) 
                 max1 = max(max1, arr[j]); 
   
-        // find maximum value(greater than arr[i]) 
-        // from i+1 to n-1 
+        
         for (int j = i + 1; j < n; ++j) 
             if (arr[j] > arr[i]) 
                 max2 = max(max2, arr[j]); 
