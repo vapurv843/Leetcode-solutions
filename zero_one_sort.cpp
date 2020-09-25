@@ -21,10 +21,10 @@ int zero(int arr[],int n)
         if(arr[i]==2) count_two++;
         
     }
-    while(count_zero>0)
+    while(i<=count_zero)
     {
         arr[i++]=0;
-        count_zero--;
+        
     }
     while(count_one>0)
     {
