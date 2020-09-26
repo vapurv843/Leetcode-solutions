@@ -11,7 +11,7 @@ public:
 	        {
 	            if(binary_search(arr,arr+n,arr[i]+arr[j]))
 	            {
-	                sum++;
+	                sum= sum+1;
 	            }
 	        }
 	    }
