@@ -8,7 +8,7 @@ int count(int arr[],int n)
   
     int invcount = 0; 
   
-    multiset<int>::iterator itset1; 
+    multiset<int>::iterator it; 
   
     
     for (int i=1; i<n; i++) 
@@ -17,10 +17,10 @@ int count(int arr[],int n)
         set1.insert(arr[i]); 
   
         
-        itset1 = set1.upper_bound(arr[i]); 
+        its = set1.upper_bound(arr[i]); 
   
     
-        invcount += distance(itset1, set1.end()); 
+        invcount += distance(it, set1.end()); 
     } 
   
     return invcount; 
