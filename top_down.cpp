@@ -14,8 +14,13 @@ int knap(int weight[],int value[],int max_weight,int n)
 			}
 			else if(weight[n-1]>weight_max)
 			{
-				return dp[i][]
+				return dp[i-1][j];
 			}
+            else
+            {
+                dp[i][j]= max()
+            }
+            
 		}
 	}
 }
