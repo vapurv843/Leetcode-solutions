@@ -1,36 +1,31 @@
-#include <iostream>
-#include<algorithm>
-
+#include<bits/stdc++.h>
 using namespace std;
-int small(int arr[],int n,int k)
+int main()
 {
-    sort(arr,arr+n);  
-//2
-//6
-//7 10 4 3 20 15
-//3
-//5
-//7 10 4 20 15
-//4
-    return arr[k-1];
-}
-
-int main() {
     int t;
     cin>>t;
     while(t--)
     {
+        int sum=0;
+        int a,b=0;
+        
         int n;
         cin>>n;
+        int k;
+        cin>>k;
         int arr[n];
         for(int i = 0;i<n;i++)
         {
             cin>>arr[i];
         }
-        int k;
-        cin>>k;
-        int s = small(arr,n,k);
-        cout<<s;
-        cout<<endl;
+        for(int i = 0;i<n;i++)
+        {
+            sum = max(sum,arr[i]+sum);
+            if(sum==k)
+            a=i;
+                break;
+            b=i;
+        }
+        cout<<a<<" "<<b <<endl;
     }
 }

@@ -1,24 +1,27 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
-
-int leader(int arr[],int n)
+int count(int arr[],int dep[],int n)
 {
-    vector<int> v;
-    v.push_back(arr[n-1]);
-    int large = arr[n-1];
-    for(int i=n-2;i>=0;i--)
-    {
-        if(arr[i]>=large)
-        {
-            large = arr[i];
-            v.push_back(large);
-        }
-    }
-    reverse(v.begin(),v.end());
-    for(int i = 0;i<v.size();i++)
-    {
-        cout<<v[i]<<" ";
-    }
+    int count = 1, result = 1; 
+    int i = 1, j = 0; 
+  
+    
+    for (int i = 0; i < n; i++) { 
+        
+        count = 1; 
+  
+        for (int j = i + 1; j < n; j++) { 
+            
+            if ((arr[i] >= arr[j] && arr[i] <= dep[j]) ||  
+           (arr[j] >= arr[i] && arr[j] <= dep[i])) 
+                count++; 
+        } 
+  
+        
+        result = max(result, count); 
+    } 
+  
+    return result; 
     
 }
 int main()
@@ -30,11 +33,15 @@ int main()
         int n;
         cin>>n;
         int arr[n];
+        int dept[n];
         for(int i = 0;i<n;i++)
         {
             cin>>arr[i];
+            cin>>dept[i];
         }
-        leader(arr,n);
+        int k = count(arr,dept,n);
+        cout<<k;
         cout<<endl;
     }
+    
 }

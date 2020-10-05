@@ -41,6 +41,7 @@ bool subset(int arr[],int n,int sum)
         for(int i =0;i<n;i++)
         {
              sum+=arr[i];
+             
         }
         if(sum%2!=0)
         {

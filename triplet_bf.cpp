@@ -1,14 +1,19 @@
-for (int i = 0; i < n; i++) { 
-        for (int j = i + 1; j < n; j++) { 
-            for (int k = j + 1; k < n; k++) { 
-                
-                int x = ar[i] * ar[i], y = ar[j] * ar[j], z = ar[k] * ar[k]; 
-  
-                if (x == y + z || y == x + z || z == x + y) 
-                    return true; 
-            } 
-        } 
-    } 
-  
-    
-    return false; 
+class Solution{
+public:
+	// Function to check if the
+	// Pythagorean triplet exists or not
+	bool checkTriplet(int arr[], int n) {
+	    sort(arr,arr+n);
+	    for(int i = 0;i<n;i++)
+	    {
+	        for(int j = i+1;j<n;j++)
+	        {
+	            if(binary_search(arr,arr+n,sqrt(arr[i]*arr[i]+arr[j]*arr[j])))
+	            {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
+};
