@@ -1,8 +1,11 @@
-#include<bits/stdc++.h>
-using namespace std;
-bool lcs(string x,string y,int m)
+class Solution{
+public:
+    bool palind(string x)
 {
+    string y = x;
+    reverse(x.begin(),x.end());
     int n = y.length();
+    int m = x.length();
     int dp[m+1][n+1];
     for(int i = 0;i<m+1;i++)
     {
@@ -36,20 +39,33 @@ bool lcs(string x,string y,int m)
     }
     
 }
-int main()
-{
-    string s;
-    cin>>s;
-    string l=s;
-    reverse(s.begin(),s.end());
-    int k = lcs(l,s,l.length());
-    if(k)
+    int solve(string s,int i,int j)
     {
-        cout<<"YES";
+        int mi = INT_MAX;
+        if(i==j || i>j)
+        {
+            return 0;
+        }
+        if(palind(s))
+        {
+            return 0;
+        }
+        for(int k = i;k=j-1;k++)
+        {
+            int temp = 1+solve(s,i,k)+solve(s,k+1,j);
+            if(temp<mi)
+            {
+                mi = temp;
+            }
+            
+        }
+        return mi;
     }
-    else
+
+    int palindromicPartition(string str)
     {
-        cout<<"no";
+        int n = str.length();
+        int k = solve(str,0,n-1);
+        return k;
     }
-    
-}
+};
