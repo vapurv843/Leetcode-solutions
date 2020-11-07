@@ -13,17 +13,17 @@ int findAttempts(int e,int f)
     if(dp[e][f]!=-1)
         return dp[e][f];
         
-    int mn=INT_MAX;
+    int mn1=INT_MAX;
     for(int k=1;k<=f;k++)
     {
         int temp=1+max(findAttempts(e-1,k-1) ,findAttempts(e,f-k));
-        mn=min(mn,temp);
+        mn1=min(mn1,temp);
     }
-    return dp[e][f]=mn;
+    return dp[e][f]=mn1;
 }
 int main()
 {
-    //memset(dp,-1,sizeof(dp));
+    
     int t;
     cin>>t;
     while(t--)
