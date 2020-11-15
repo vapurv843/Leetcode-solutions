@@ -21,7 +21,7 @@ int zero(int arr[],int n)
         if(arr[i]==2) count_two++;
         
     }
-    while(i<=count_zero)
+    while(count_zero>0)
     {
         arr[i++]=0;
         
