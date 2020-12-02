@@ -9,7 +9,37 @@ class Node
     int data;
     vector<Node*> children;
 };
-
+int heigh(Node *h)
+{
+    int height = -1;
+    for(Node *ht :h->children)
+    {
+        int ch = heigh(ht);
+        height = max(height,ch);
+    }
+    return height+1;
+}
+int maxi(Node *temp)
+{
+    int mx = INT_MIN;
+    for(Node *t : temp->children)
+    {
+        int m = maxi(t);
+        mx=max(mx,m);
+    }
+    mx  = max(temp->data,mx);
+    return mx;
+}
+int size(Node *temp)
+{
+    int count = 1;
+    for(Node *t : temp->children)
+    {
+        int c = size(t);
+        count+=c;
+    }
+    return count;
+}
 void printTree(Node* node)
 {
     cout << "[" << node->data << "] - ";
@@ -25,7 +55,7 @@ void printTree(Node* node)
 
 int main()
 {
-    int a[]={10,5,4,-1,1,-1,-1,6,-1,-1};
+    int a[]={10,5,4,5,6,7,8,9,-1,1,-1,-1,60,-1,-1};
     int n=sizeof(a)/sizeof(a[0]);
     
     stack<Node*> s;
@@ -50,8 +80,12 @@ int main()
             s.push(temp);
         }
     }
-    //cout<<root->children.size()<<endl;
+    
     printTree(root);
+    int p = size(root);
+    cout<<"Size of tree is "<<" : "<<p<<endl;
+    cout<<"maximim in tree is "<<":"<<maxi(root)<<endl;
+    cout<<"The heigth of tree is"<<"::"<<heigh(root)<<endl;
 
     return 0;
 }
