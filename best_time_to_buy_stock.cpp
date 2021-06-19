@@ -1,18 +1,11 @@
-class Solution {
-public:
-    int maxProfit(vector<int>& cost) {
-        int res = 0;
-        int temp=0;
-        for(int i = 0;i<cost.size();i++)
-        {
-            for(int j = i+1;j<cost.size();j++)
-            {
-                temp = cost[j]-cost[i];
-                res = max(temp,res);
-                
-            }
-        }
-        return res;
+def sumsDivisibleByK(a, k):
+    count = 0
+    for i in range(len(a)):
+        for j in range(i+1):
+            sum = a[i]+a[j]
+            if sum%k==0 and i!=j:
+               
+                count = count+1;
+    return count           
         
-    }
-};
+

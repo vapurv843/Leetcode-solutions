@@ -20,7 +20,7 @@ public:
             {
                 swap(nums[mid],nums[high]);
                 {
-                    mid++;
+                    //mid++;
                     high--;
                 }
             }
