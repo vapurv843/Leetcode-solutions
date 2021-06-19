@@ -1,3 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
 void solve(int open,int close,string op,vector<string> &v)
 {
     if(open == 0 and close ==0)
@@ -28,4 +33,14 @@ vector<string> AllParenthesis(int n)
     string op = "";
     solve(open,close,op,v);
     return v;
+}
+int main()
+{
+    int n=2;
+    vector<string> v= AllParenthesis(n);
+    for(auto s:v)
+    {
+        cout<<s<<" ";
+    }
+    cout<<endl;
 }

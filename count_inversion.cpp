@@ -1,73 +1,92 @@
 #include<bits/stdc++.h>
 using namespace std ;
-int merge(int v[],int temp[],int left,int mid ,int right)
+
+long long Count=0;
+void  merge(long long v[],long long temp[],long long left,long long  mid ,long long right)
 {
-    int i = left;
-    int j = mid;
-    int k = left;
-    int count = 0;
-    while((i<=mid-1) and (j<=right))
+    long long int i = 0;
+    long long int j = 0;
+    long long int k = left;
+    
+    long long n1=0,n2=0;
+    
+    n1 = (mid-left+1);
+    n2 = (right-mid);
+    
+    while((i<n1) && (j<n2))
     {
-        if(v[i]<=v[j])
+        if(v[left+i]<=v[mid+1+j])
         {
-            temp[k]=v[i];
+            temp[k]=v[left+i];
             k++;
             i++;
         }
         else
         {
-            temp[k]= v[j];
+            temp[k]= v[mid+1+j];
             k++;
             j++;
-            count = count+(mid-i);
+            Count = Count+(mid-i+1);
         }
         
     }
-    while(i<=mid-1)
+    while(i<n1)
     {
-        temp[k++]= v[i++];
+        temp[k]= v[left+i];
+        k++;
+        i++;
     }
-    while(j<=right)
+    while(j<n2)
     {
-        temp[k++]=v[j++];
+        temp[k]=v[mid+1+j];
+        k++;
+        j++;
     }
-    for(int i = left;i<=right;i++)
+    j =0;
+    for( i = left;i<=right;i++, j++)
     {
-        v[i]= temp[i];
+        v[i]= temp[j];
     }
-    return count;
+   // return count;
    
 
 }
-int merge_sort(int  v[],int temp[],int low ,int high)
+void merge_sort(long long  v[],long long temp[],long long low ,long long high)
 {
-    int count = 0;
-    int mid = 0;
+    long long mid = 0;
 
     if(high>low)
     {
 
     
-     mid =(high+low)/2;
-    count+=merge_sort(v,temp,0,mid);
-    count+=merge_sort(v,temp,mid+1,high);
-    count+=merge(v,temp,low,mid,high);
+    mid =(high+low)>>1;
+    merge_sort(v,temp,0,mid);
+    merge_sort(v,temp,mid+1,high);
+    merge(v,temp,low,mid,high);
     }
-    return count;
 
      
 }
 
+/*long long  inversionCount(long long v[], long long N)
+{
+    long long temp[N]={0,};
+    Count =0;
+    merge_sort(v,temp,0,N-1);
+    return Count;
+}
+
+*/
 int main()
 {
     
-    int v[]={2, 4, 1, 3, 5};
-    int n = sizeof(v)/sizeof(int);
-    int temp[n];
+    long long v[]={2, 4, 1, 3, 5};
+    long long n = sizeof(v)/sizeof(int);
+    long long  temp[n] = {0,};
 
     
-    int count = merge_sort(v,temp,0,n-1);
-    cout<<count<<endl;
+    merge_sort(v,temp,0,n-1);
+    cout<<Count<<endl;
 
     
 

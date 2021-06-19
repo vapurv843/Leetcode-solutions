@@ -1,16 +1,18 @@
-class Solution {
-public:
-    int minCostClimbingStairs(vector<int>& penalty) {
-        int numSteps = penalty.size();
-        if(numSteps < 2)
-            return 0;
-        vector<int> dp(numSteps, 0);
-        dp[0] = penalty[0];
-        dp[1] = penalty[1];
-        for(int i = 2; i < penalty.size(); i++) {
-            dp[i] = penalty[i] + min(dp[i - 1], dp[i - 2]);
-        }
-        return min(dp[numSteps - 1], dp[numSteps - 2]);
-        
-    }
-};
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<vector<int>> v = {{1,2,3},{11,22,33},{111,222,3333},{5,4,3}};
+    int m = v.size();
+    int n = v[0].size();
+   v[0][0]=900;
+   for(int i = 1;i<m;i++)
+   {
+       v[i][0]=44;
+   }
+   for(int i = 0;i<m;i++)
+   {
+       cout<<v[i][0]<<" ";
+   }
+    
+}

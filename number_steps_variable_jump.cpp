@@ -12,7 +12,7 @@ int cs(int arr[], int n){
 
     for(int i = n - 1; i >= 0; i--){
         for(int jumps = 1; jumps <= arr[i]; jumps++){
-            if(i + jumps <= n){
+            if(i + jumps <= n){ 
                 dp[i] += dp[i + jumps];
             }
         }

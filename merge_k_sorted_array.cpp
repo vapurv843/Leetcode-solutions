@@ -1,20 +1,33 @@
-int *mergeKArrays(int arr[][N], int k)
+#include <iostream>
+using namespace std;
+using ll = long long;
+ll count_odd(ll arr[],ll n)
 {
-   priority_queue<int,vector<int>,greater<int>> pq;
-   for(int i = 0;i<k;i++)
-   {
-       for(int j = 0;j<k;j++)
-       {
-           pq.push(arr[i][j]);
-       }
-   }
-   int index = 0;
-   int *res = new int[k*k];
-   while(pq.size()!=0)
-   {
-       res[index++]= pq.top();
-       pq.pop();
-       
-   }
-   return res;
+    ll count = 0;
+    for(ll i = 0;i<n;i++)
+    {
+        if(arr[i]&1==1)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+	    ll n ;
+	    cin>>n;
+	    ll arr[n];
+	    for(ll i = 0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	    }
+	    ll count=count_odd(arr,n);
+	    cout<<count<<endl;
+	}
+	
 }

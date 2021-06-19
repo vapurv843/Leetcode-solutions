@@ -28,5 +28,5 @@ int main() {
         int ans=min(ans1,min(ans2,ans3)); 
         cout<<ans<<"\n";
     }
-    return 0;
+    return 0;    
 }

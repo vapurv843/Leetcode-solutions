@@ -17,7 +17,7 @@ int decode(int n)
 }
 int main()
 {
-    int n=6;
+    int n=4;
     //cin>>n;
     int count = decode(n);
     cout<<count;

@@ -12,12 +12,25 @@ void solve()
     {
         cin>>v[i];
     }
-    
+    for(int i = 0;i<n;i++)
+    {
+        if(v[i]%2==0)
+        {
+            ans.push_back(v[i]);
+        }
+    }
+    for(int i = 0;i<n;i++)
+    {
+        if(v[i]%2==1)
+        {
+            ans.push_back(v[i]);
+        }
+    }
     for(int i = 0;i<n;i++)
     {
         for(int j = i+1;j<n;j++)
         {
-            if(__gcd(v[i],v[j]*2)>1)
+            if(__gcd(ans[i],ans[j]*2)>1)
             {
                 count++;
             }

@@ -8,7 +8,7 @@ vector<vector<string> > Anagrams(vector<string>& strings)
         sort(s.begin(),s.end());
         if(umap.find(s)!=umap.end())
         {
-            //umap[s]++;
+            
             ans[s].push_back(strings[i]);
         }
         else
@@ -24,7 +24,7 @@ vector<vector<string> > Anagrams(vector<string>& strings)
     {
         ans1.push_back(x.second);
     }
-    return ans1;
+    return ans1;    
 
 
 }

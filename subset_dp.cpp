@@ -23,7 +23,7 @@ int subset(int arr[],int n,int sum)
         {
             if(arr[i-1]<=j)
             {
-                dp[i][j]=dp[i - 1][j] + dp[i - 1][j - arr[i - 1]];
+                dp[i][j]=dp[i - 1][j] || dp[i - 1][j - arr[i - 1]];
                                
             }
             else
@@ -42,10 +42,18 @@ int main()
       //cin>>n;
       int arr[5]={1,2,3,3};
       
-      int sum=6 ;
+      int sum=60 ;
       //cin>>sum;
-      int k = subset(arr,n,sum);
-      cout<<k;
+      if( subset(arr,n,sum))
+      {
+          cout<<"YES";
+      }
+      else
+      {
+          cout<<"NP";
+      }
+      
+      
       
       
 }

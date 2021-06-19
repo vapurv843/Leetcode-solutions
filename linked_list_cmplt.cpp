@@ -158,7 +158,7 @@ int main()
     end(999);
     end(9908);
     display();
-    findloop(&head);
-    display1();
+    //findloop(&head);
+    //display1();
 
 }

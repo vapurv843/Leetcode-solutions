@@ -1,33 +1,27 @@
-class Solution {
-public:
-    bool arepair(char open,char close)
+#include<iostream>
+#include<bits/stdc++.h>
+int ad_mx[10005][10005];
+using namespace std ;
+int main()
+{
+    memset(ad_mx,0,sizeof(ad_mx));
+    int n,m;
+    int x,y;
+    //n=node;
+    //m = edges
+    cin>>n>>m;
+    for(int i = 0;i<m;i++)
     {
-        if(open=='(' && close == ')') return true;
-        if(open == '{' && close == '}') return true;
-        if(open == '[' && close == ']') return true;
-        return false;
-        
+        cin>>x>>y;
+        ad_mx[x][y]=1;
     }
-    bool isValid(string s) {
-        int n = s.length();
-        stack<char> st;
-        for(int i = 0;i<n;i++)
-            if(s[i]=='(' || s[i]=='{' || s[i]=='[')
-                st.push(s[i]);
-            else if(s[i]==')' || s[i]=='}' || s[i]==']')
-                
-                {
-                    if(st.empty())
-                    {
-                        return false;
-                    }
-                    if(arepair(st.top(),s[i]))
-                        st.pop();
-                    else
-                        return false;
-                    
-                } 
-        return st.empty()?true:false;
-        
+    for(int i = 0;i<n;i++)
+    {
+        for(int j = 0;j<m;j++)
+        {
+            cout<<ad_mx[i][j]<<" ";
+        }
+        cout<<endl;
     }
-};
+
+}

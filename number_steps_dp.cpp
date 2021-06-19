@@ -1,19 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
-int dp[100];
+//int dp[100];
 int step(int n)
 {
-    if(n==1 || n==0) return 1;
-    if(n==2) return 2;
-    if(dp[n]!=0) return dp[n];
-    int l =  step(n-1)+step(n-2)+step(n-3);
-    dp[n]=l;
-    return dp[n];
+   int dp[n+1];
+   dp[0]=1;
+   for(int i = 1;i<=n;i++)
+   {
+       if(i==1) 
+       {
+           dp[i]= dp[i-1];
+       }
+       else if(i==2)
+       {
+           dp[i]= dp[i-1]+dp[i-2];
+       }
+       else
+       {
+           dp[i]= dp[i-1]+dp[i-2]+dp[i-3];
+
+       }
+       //return dp[n];
+       
+   }
+   return dp[n];
     
 }
 int main()
 {
-    memset(dp ,0,sizeof(dp));
+
+    
     int n ;
     cin>>n;
     int k = step(n);
